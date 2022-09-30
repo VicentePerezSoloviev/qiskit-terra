@@ -122,8 +122,13 @@ class UMDA(Optimizer):
     ELITE_FACTOR = 0.4
     STD_BOUND = 0.3
 
-    def __init__(self, maxiter: int = 100, size_gen: int = 20, alpha: float = 0.5,
-                 callback: Optional[CALLBACK] = None) -> None:
+    def __init__(
+        self,
+        maxiter: int = 100,
+        size_gen: int = 20,
+        alpha: float = 0.5,
+        callback: Optional[CALLBACK] = None,
+    ) -> None:
         r"""
         Args:
             maxiter: Maximum number of iterations.
@@ -248,9 +253,7 @@ class UMDA(Optimizer):
 
             if self.callback is not None:
                 self.callback(
-                    len(history) * self._size_gen,
-                    self._best_ind_global,
-                    self._best_cost_global
+                    len(history) * self._size_gen, self._best_ind_global, self._best_cost_global
                 )
 
             self._new_generation()
